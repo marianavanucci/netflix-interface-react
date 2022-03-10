@@ -1,13 +1,16 @@
-function Base (){
+import Tmdb from "../Tmdb/Tmdb";
+import { useEffect } from "react";
 
-    // comentario aqui escrevo const e funcoes
-
-
-    return (
-        <div>
-            oie
-        </div>
-    )
+function Base() {
+  // comentario aqui escrevo const e funcoes
+  useEffect(() => {
+    loadAll();
+  }, []);
+  const loadAll = async () => {
+    let list = await Tmdb.getHomeList();
+    console.log(list);
+  };
+  return <div>oie</div>;
 }
 
-export default Base
+export default Base;
